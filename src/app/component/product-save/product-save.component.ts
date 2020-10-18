@@ -16,7 +16,10 @@ export class ProductSaveComponent implements OnInit {
   public showMsg:boolean=false;
   public messages:string[]=[""];
 
-
+  ngOnInit(): void {
+    this.findAllEnable();
+    this.product= new Product("","",0,"","Y","");
+  }
   constructor(
     public productService:ProductListService,
     public enableService: EnableService
@@ -43,11 +46,4 @@ export class ProductSaveComponent implements OnInit {
     );
     
   }
-
-  ngOnInit(): void {
-    this.findAllEnable();
-    this.product= new Product("","",0,"","Y","");
-  }
-
-
 }
