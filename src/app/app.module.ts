@@ -7,6 +7,13 @@ import { CustomerListComponent } from './component/customer-list/customer-list.c
 import { HttpClientModule } from '@angular/common/http';
 import { ProductListComponent } from './component/product-list/product-list.component';
 import { PaymentMethodListComponent } from './component/payment-method-list/payment-method-list.component';
+import { CustomerSaveComponent } from './component/customer-save/customer-save.component';
+import { FormsModule } from '@angular/forms';
+import { CustomerEditComponent } from './component/customer-edit/customer-edit.component';
+import { PaymentMethodEditComponent } from './component/payment-method-edit/payment-method-edit.component';
+import { ProductEditComponent } from './component/product-edit/product-edit.component';
+import { ProductSaveComponent } from './component/product-save/product-save.component';
+import { PaymentMethodSaveComponent } from './component/payment-method-save/payment-method-save.component';
 
 
 @NgModule({
@@ -15,13 +22,20 @@ import { PaymentMethodListComponent } from './component/payment-method-list/paym
     CustomerListComponent,
     ProductListComponent,
     PaymentMethodListComponent,
+    CustomerSaveComponent,
+    CustomerEditComponent,
+    PaymentMethodEditComponent,
+    ProductEditComponent,
+    ProductSaveComponent,
+    PaymentMethodSaveComponent,
    
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,9 @@
 export class PaymentMethod {
 
   constructor(
-    public payId:Number ,
-	public enable:String ,
-    public name:String ,
+    public payId:number ,
+	  public enable:string ,
+    public name:string ,
 	
   ) { }
 

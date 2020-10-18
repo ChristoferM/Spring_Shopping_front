@@ -1,11 +1,11 @@
 export class Product {
 
     constructor(
-        public proId:String ,
-        public name:String ,
-        public price:Number ,
-        public detail:String , 
-        public enable:String ,   
-        public image:String ,
+        public proId:string ,
+        public name:string ,
+        public price:number ,
+        public detail:string , 
+        public enable:string ,   
+        public image:string ,
       ) { }
 }

@@ -3,19 +3,25 @@
 <table>
 
 <tr>
+    <td>ID</td>
     <td>name</td>
     <td>price</td>
     <td>detail</td>
     <td>enable</td>
+    <td>otros</td>
     
     
 </tr>
 
     <tr *ngFor="let product of products">
+        <td>{{product.proId}}</td>
         <td>{{product.name}}</td>
         <td>{{product.price}}</td>
         <td>{{product.detail}}</td>
         <td>{{product.enable}}</td>
+        <td>
+            <a [routerLink]="['/product-edit',product.proId]" >Editar</a>
+        </td>
         
 </tr>
 
