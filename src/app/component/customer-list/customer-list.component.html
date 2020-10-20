@@ -2,17 +2,26 @@
 
 <table>
 
-<tr>
-    <td>Email</td>
-    <td>Name</td>
-</tr>
-<tr *ngFor="let customer of customers">
-    <td>{{customer.email}}</td>
-    <td>{{customer.name}}</td>
-    <td>
-        <a [routerLink]="['/customer-edit',customer.email]" >Editar</a>
-    </td>
-</tr>
+    <div *ngIf="showMsg">
+        <p *ngFor="let msg of messages">
+            {{msg}}
+        </p>
+
+    </div>
+    <tr>
+        <td>Email</td>
+        <td>Name</td>
+    </tr>
+    <tr *ngFor="let customer of customers">
+        <td>{{customer.email}}</td>
+        <td>{{customer.name}}</td>
+        <td>
+            <a [routerLink]="['/customer-edit',customer.email]">Editar</a>
+            <button (click)="delete(customer.email)">
+                delete
+            </button>
+        </td>
+    </tr>
 
 
 </table>

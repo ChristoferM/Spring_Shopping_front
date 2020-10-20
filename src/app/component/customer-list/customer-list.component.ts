@@ -12,6 +12,9 @@ export class CustomerListComponent implements OnInit {
   public titulo:string= "lista de clientes";
   public customers:Customer[];
 
+  public showMsg: boolean = false;
+  public messages: string[] = [""];
+
   constructor(
     public customerService:CustomerService
     ) { }
@@ -29,6 +32,25 @@ export class CustomerListComponent implements OnInit {
         console.log("Error");
       });
    }
+   public delete(email:string): void {
+    this.messages = [""];
+    console.log("Option delete ");
+    console.log(email);
+    this.customerService.delete(email).subscribe(
+      ok => {
+        this.showMsg = true;
+        this.messages[0] = "Customer se ha elimino Correctamente";
+        this.findAll()
+      },
+      err => {
+        console.log(err.error.error);
+
+        this.showMsg = true;
+        this.messages = err.error.error;
+      }
+    );
+
+  }
 
 
 }
