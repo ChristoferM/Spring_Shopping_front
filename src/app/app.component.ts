@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cart-front';
+
+  public isAuth(): boolean {
+    console.log (localStorage.getItem('usuario'));
+    
+    return !!localStorage.getItem('usuario');   
+    /*
+    --> Froma Tradicional de Hacrlo
+    if(localStorage.getItem('usuario')){
+      return true;
+      else{
+        return false;
+      }
+    }*/
+
+  }
 }

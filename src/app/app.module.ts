@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +19,8 @@ import { PaymentMethodEditComponent } from './component/payment-method-edit/paym
 import { ProductEditComponent } from './component/product-edit/product-edit.component';
 import { ProductSaveComponent } from './component/product-save/product-save.component';
 import { PaymentMethodSaveComponent } from './component/payment-method-save/payment-method-save.component';
+import { LoginComponent } from './component/login/login.component';
+import { ShoopingCartComponent } from './component/shooping-cart/shooping-cart.component';
 
 
 @NgModule({
@@ -28,6 +35,8 @@ import { PaymentMethodSaveComponent } from './component/payment-method-save/paym
     ProductEditComponent,
     ProductSaveComponent,
     PaymentMethodSaveComponent,
+    LoginComponent,
+    ShoopingCartComponent,
    
 
   ],
@@ -35,7 +44,12 @@ import { PaymentMethodSaveComponent } from './component/payment-method-save/paym
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,29 +1,81 @@
+****************************
+
+
+<p>
+  <mat-toolbar>
+    <span>PRODUCTOS</span>
+    <div class="espace">
+      <ul>
+        <li>
+          <div class="example-button-row">
+            <div class="example-flex-container">
+              <button  routerLink="/shooping-cart" mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+                <a routerLink="/shooping-cart"></a>
+                <mat-icon>favorite</mat-icon>
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar>
+
+</p>
+
+********************************
 <h3>{{titulo}}</h3>
 
-<table>
-
-<tr>
-    <td>ID</td>
-    <td>name</td>
-    <td>price</td>
-    <td>detail</td>
-    <td>enable</td>
-    <td>otros</td>
-    
-    
-</tr>
+<div class="Content">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Ref</th>
+        <th scope="col">name</th>
+        <th scope="col">price</th>
+        <th scope="col">detail</th>
+        <th scope="col">enable</th>
+        <th scope="col">imagen</th>
+        <th scope="col">Opciones de Carrito</th>
+      </tr>
+    </thead>
 
     <tr *ngFor="let product of products">
-        <td>{{product.proId}}</td>
-        <td>{{product.name}}</td>
-        <td>{{product.price}}</td>
-        <td>{{product.detail}}</td>
-        <td>{{product.enable}}</td>
-        <td>
-            <a [routerLink]="['/product-edit',product.proId]" >Editar</a>
-        </td>
-        
-</tr>
+      <td th scope="row">{{product.proId}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.detail}}</td>
+      <td>{{product.enable}}</td>
+      <td><img src={{product.image}} width="100" height="100" /></td>
+
+      <td class="input-group">
+
+        <span class="input-group-btn">
+          <button (click)="delete_Cart(product.proId)" type="button" class="btn btn-danger btn-number"
+            data-type="minus">
+            Eliminar
+            <span class="glyphicon glyphicon-minus"></span>
+          </button>
+        </span>
+        <span class="input-group-btn">
+
+          <button (click)="add_Cart(product.proId)" type="button" class="btn btn-success btn-number"
+            data-type="plus">agregar
+            <span class="glyphicon glyphicon-plus"></span>
+          </button>
+        </span>
+
+        <!-- 
+                <a [routerLink]="['/product-edit',product.proId]">Editar</a>
+
+                <button (click)="delete(product.proId)">
+                    delete
+                </button>
+                -->
+      </td>
+
+    </tr>
 
 
-</table>
+  </table>
+
+</div>

@@ -1,0 +1,50 @@
+<div *ngIf="showMsg">
+    <p *ngFor="let msg of messages">
+        {{msg}}
+    </p>
+
+</div>
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <form #loginForm="ngForm">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <br>
+                <input type="email" name="username" id="username" #username="ngModel" placeholder="UserName"
+                    [(ngModel)]="user.username" />
+                <br />
+
+
+
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <br>
+                <input type="password" name="password" id="password" #password="ngModel" placeholder="Password"
+                    [(ngModel)]="user.password" />
+                <br />
+                <br />
+                <br />
+
+            </div>
+
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <button type="submit" class="btn btn-primary" (click)="ingresar()">Ingresar</button>
+            </div>
+
+
+        </form>
+
+
+
+    </div>
+</div>

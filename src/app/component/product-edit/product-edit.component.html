@@ -1,3 +1,58 @@
-{{proId}}
+<div *ngIf="product">
+
+    <div *ngIf="showMsg">
+        <p *ngFor="let msg of messages">
+            {{msg}}
+        </p>
+    
+    </div>
+    
+<div *ngIf="showMsg">
+    <p *ngFor="let msg of messages">
+        {{msg}}
+    </p>
+
+</div>
+<form #productform="ngForm">
+
+    <input type="text" name="proId" id="proId" #proId placeholder="ID Producto" [(ngModel)]="product.proId" required />
+    <br>
+    <input type="text" name="name" id="name" #email placeholder="name" [(ngModel)]="product.name" required />
+    <br>
+    <input type="text" name="price" id="price" #name placeholder="price" [(ngModel)]="product.price">
+    <br>
+    <input type="text" name="detail" id="detail" #address placeholder="detail" [(ngModel)]="product.detail">
+    <br>
+    <!-- <input type="text" name="enable" id="enable" #phone placeholder="enable" [(ngModel)]="product.enable">
+    <br> -->
+    <input type="text" name="image" id="image" #token placeholder="image" [(ngModel)]="product.image">
+
+    <br>
+    <select name="enable" id="enable" #enable [(ngModel)]="product.enable">
+        <option *ngFor="let enable of enables" [value]="enable.id">{{enable.name}}</option>
+    </select>
+    <button (click)="update()">
+        update
+    </button>
+    <button (click)="delete()">
+        delete
+    </button>
+    <button routerLink="/customer-list">
+        Cancel
+    </button>
 
 
+</form>
+
+
+{{product.proId}}
+<br/>
+{{product.name}}
+<br/>
+{{product.price}}
+<br/>
+{{product.detail}}
+<br/>
+{{product.image}}
+<br/>
+{{product.enable}}

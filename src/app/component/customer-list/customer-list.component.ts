@@ -29,12 +29,12 @@ export class CustomerListComponent implements OnInit {
         this.customers=data;
       },
       error=>{
-        console.log("Error");
+        console.log("Error en FINDALL");
       });
    }
    public delete(email:string): void {
     this.messages = [""];
-    console.log("Option delete ");
+    console.log("****************************  Option delete ");
     console.log(email);
     this.customerService.delete(email).subscribe(
       ok => {

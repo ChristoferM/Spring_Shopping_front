@@ -9,22 +9,31 @@ import { PaymentMethodSaveComponent } from './component/payment-method-save/paym
 import { PaymentMethodEditComponent } from './component/payment-method-edit/payment-method-edit.component';
 import { ProductSaveComponent } from './component/product-save/product-save.component';
 import { ProductEditComponent } from './component/product-edit/product-edit.component';
+import { LoginComponent } from './component/login/login.component';
+import { ShoopingCartComponent } from './component/shooping-cart/shooping-cart.component';
+import { AuthGuard } from './guard/auth.guard';
 
 
 const routes: Routes = [
   
-  {path: "paymentMethod-list",component: PaymentMethodListComponent},
-  {path: "paymentMethod-save",component: PaymentMethodSaveComponent},
-  {path: "paymentMethod-edit/:payId",component: PaymentMethodEditComponent},
+  {path: "paymentMethod-list",component: PaymentMethodListComponent, canActivate:[AuthGuard] },
+  {path: "paymentMethod-save",component: PaymentMethodSaveComponent, canActivate:[AuthGuard] },
+  {path: "paymentMethod-edit/:payId",component: ShoopingCartComponent, canActivate:[AuthGuard] },
+
+  
+  {path: "shooping-cart",component: PaymentMethodEditComponent, canActivate:[AuthGuard] },
 
 
-  {path: "product-list",component: ProductListComponent},
-  {path: "product-save",component: ProductSaveComponent},
-  {path: "product-edit/:proId",component: ProductEditComponent},
+  {path: "product-list",component: ProductListComponent, canActivate:[AuthGuard] },
+  {path: "product-save",component: ProductSaveComponent, canActivate:[AuthGuard] },
+  {path: "product-edit/:proId",component: ProductEditComponent, canActivate:[AuthGuard] },
 
-  {path: "customer-list",component: CustomerListComponent},
-  {path: "customer-save",component:CustomerSaveComponent},
-  {path: "customer-edit/:email",component:CustomerEditComponent},
+  {path: "customer-list",component: CustomerListComponent, canActivate:[AuthGuard] },
+  {path: "customer-save",component:CustomerSaveComponent, canActivate:[AuthGuard] },
+  {path: "customer-edit/:email",component:CustomerEditComponent, canActivate:[AuthGuard] },
+  
+  {path: "login", component:LoginComponent},
+  {path: '', component:LoginComponent}
 ];
 
 @NgModule({

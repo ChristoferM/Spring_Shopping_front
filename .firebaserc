@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cart-spring": {
+      "hosting": {
+        "cart-front": [
+          "cart-spring"
+        ]
+      }
+    }
+  }
+}
