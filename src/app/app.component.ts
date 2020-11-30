@@ -9,8 +9,6 @@ export class AppComponent {
   title = 'cart-front';
 
   public isAuth(): boolean {
-    console.log (localStorage.getItem('usuario'));
-    
     return !!localStorage.getItem('usuario');   
     /*
     --> Froma Tradicional de Hacrlo

@@ -6,11 +6,12 @@ import { PaymentMethodListComponent } from "./component/payment-method-list/paym
 import { CustomerSaveComponent } from './component/customer-save/customer-save.component';
 import { CustomerEditComponent } from './component/customer-edit/customer-edit.component';
 import { PaymentMethodSaveComponent } from './component/payment-method-save/payment-method-save.component';
+import { PayShoppingCarComponent } from './component/pay-shopping-car/pay-shopping-car.component';
 import { PaymentMethodEditComponent } from './component/payment-method-edit/payment-method-edit.component';
 import { ProductSaveComponent } from './component/product-save/product-save.component';
 import { ProductEditComponent } from './component/product-edit/product-edit.component';
 import { LoginComponent } from './component/login/login.component';
-import { ShoopingCartComponent } from './component/shooping-cart/shooping-cart.component';
+import { ShoopingCartComponent } from './component/shooping-cart/shooping-cart.component'
 import { AuthGuard } from './guard/auth.guard';
 
 
@@ -21,8 +22,8 @@ const routes: Routes = [
   {path: "paymentMethod-edit/:payId",component: ShoopingCartComponent, canActivate:[AuthGuard] },
 
   
-  {path: "shooping-cart",component: PaymentMethodEditComponent, canActivate:[AuthGuard] },
-
+  {path: "shooping-cart",component:ShoopingCartComponent , canActivate:[AuthGuard] },
+  {path: "payShoppingCar",component:PayShoppingCarComponent,canActivate:[AuthGuard]},
 
   {path: "product-list",component: ProductListComponent, canActivate:[AuthGuard] },
   {path: "product-save",component: ProductSaveComponent, canActivate:[AuthGuard] },

@@ -1,0 +1,41 @@
+<p>----------------------------------------------------------------</p>
+<div class="tabla">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Costo </th>
+
+            </tr>
+        </thead>
+
+        <tr *ngFor="let product of products">
+            <td th scope="row">{{product.proId}}</td>
+            <td>{{product.price}}</td>
+        </tr>
+
+
+    </table>
+</div>
+<br>
+<br>
+<br>
+<div>
+    <h4>Métodos de pago</h4>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">tipo </th>
+                <th scope="col">pagar </th>
+
+            </tr>
+        </thead>
+
+        <tr *ngFor="let pay of pays">
+            <td th scope="row">{{pay.name}}</td>
+            <td th scope="row">PAGAR</td>
+        </tr>
+
+
+    </table>
+</div>

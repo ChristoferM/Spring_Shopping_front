@@ -1,13 +1,67 @@
-<p>shooping-cart works!</p>
+<h3>{{Cabecera}}</h3>
 
 <p>shooping-cart works!</p>
-<p>shooping-cart works!</p>
-<p>shooping-cart works!</p>
-<p>shooping-cart works!</p>
-<p>shooping-cart works!</p>
-<p>shooping-cart works!</p>
-<p>shooping-cart works!</p>
-<p>shooping-cart works!</p>
-<p>shooping-cart works!</p>
-<p>shooping-cart works!</p>
-<p>shooping-cart works!</p>
+
+
+
+<div class="Content">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Ref</th>
+                <th scope="col">enable</th>
+                <th scope="col">Cant. items</th>
+                <th scope="col">Cost. total</th>
+                <th scope="col">customerEmail</th>
+                <th scope="col">paymentMethod Id</th>
+                <th scope="col">Opciones de Carrito</th>
+            </tr>
+        </thead>
+
+        <tr *ngFor="let car of cars">
+            <td th scope="row">{{car.carId}}</td>
+            <td>{{car.enable}}</td>
+            <td>{{car.items}}</td>
+            <td>{{car.total}}</td>
+            <td>{{car.customerEmail}}</td>
+            <td><div *ngIf="car.paymentMethod == null">
+                <td>Pendiente de pago</td>
+            </div>
+            <ng-template #elseBlock>
+                <td>{{car.paymentMethod}}</td>
+            </ng-template></td>
+            
+            
+
+            <td class="input-group">
+
+                <span class="input-group-btn">
+                    <button (click)="editCar(car.carId)" type="button" class="btn btn-danger btn-number"
+                        data-type="minus">
+                        Editar
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </button>
+                </span>
+                <span class="input-group-btn">
+
+                    <button  (click)="payCar(car.carId)" type="button" class="btn btn-success btn-number"
+                        data-type="plus">Pagar
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </span>
+
+                <!-- 
+                  <a [routerLink]="['/product-edit',product.proId]">Editar</a>
+  
+                  <button (click)="delete(product.proId)">
+                      delete
+                  </button>
+                  -->
+            </td>
+
+        </tr>
+
+
+    </table>
+
+</div>

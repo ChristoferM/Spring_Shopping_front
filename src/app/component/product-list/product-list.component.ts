@@ -3,6 +3,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { Product } from 'src/app/domain/product';
 import { ProductListService } from 'src/app/service/product-list.service';
 import { ViewChild } from '@angular/core'
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-product-list',
@@ -16,9 +17,10 @@ export class ProductListComponent implements OnInit {
 
   public titulo: string = "lista de Productos";
   public products: Product[];
+  
   someMethod() {
     this.trigger.openMenu();
-    
+
   }
 
   public showMsg: boolean = false;
@@ -29,12 +31,12 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAll();
-    
+
   }
 
-  public showCar(){
+  public showCar() {
     console.log('Ver Productos agregados al carro de compras');
-    
+
 
   }
   public delete(proId: string): void {
@@ -71,6 +73,7 @@ export class ProductListComponent implements OnInit {
 
   }
   public findAll(): void {
+    console.log('BUSCANDO A TODOS');
 
     this.productService.findAll().subscribe(
       data => {

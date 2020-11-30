@@ -9,11 +9,13 @@ import { User } from '../domain/user';
 })
 export class AuthService {
 
-  private url:string=environment.apiURL+'login';
+  private url:string=environment.apiURL+'/login';
 
   constructor(public httpClient:HttpClient) {}
 
   public loginUser(user:User):Observable<any>{
+    console.log(this.url);
+    
     return this.httpClient.post(this.url,user);
   }
 
