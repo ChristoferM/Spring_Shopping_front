@@ -46,4 +46,16 @@ export class PaymentMethodListService {
     let headers = this.createTokenHeader();
     return this.httpClient.delete(this.url + 'delete/' + payId, { headers: headers });
   }
+
+
+
+  public switchEnable(payId: string): Observable<any> {
+    let headers = this.createTokenHeader();
+    return this.httpClient.delete(this.url + 'Enable/' + payId, { headers: headers });
+  }
+
+  public switchDisable(payId: string): Observable<any> {
+    let headers = this.createTokenHeader();
+    return this.httpClient.delete(this.url + 'Disable/' + payId, { headers: headers });
+  }
 }

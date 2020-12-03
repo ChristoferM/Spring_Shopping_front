@@ -32,7 +32,7 @@ export class CustomerService {
 
   public findById(email: string): Observable<any> {
     let headers=this.createTokenHeader();
-    return this.httpClient.get(this.url+'findById/'+email,{headers:headers});
+    return this.httpClient.get(this.url+'finById/'+email,{headers:headers});
     //return this.httpClient.get(this.url + 'finById/' + email);
   }
 

@@ -8,7 +8,7 @@ import { ShoppingProduct } from '../domain/shoppingProduct';
 })
 export class ShoppingProductService {
   
-  public url:string=environment.apiURL+"/api//";
+  public url:string=environment.apiURL+"/api/shoppingProduct/";
   constructor(
     public httpClient:HttpClient
   ) { }
@@ -22,8 +22,6 @@ export class ShoppingProductService {
   
   public findAll():Observable<any>{
     let headers=this.createTokenHeader();
-    console.log("http://localhost:9090/api/product/finByAll");
-    
     return this.httpClient.get(this.url + 'finByAll',{headers:headers});
   }
 
@@ -45,5 +43,11 @@ export class ShoppingProductService {
     let headers=this.createTokenHeader();
     return this.httpClient.delete(this.url + 'delete/' + proId,{headers:headers});
   }
+  public findAllForEmail(): Observable<any> {
+    let headers=this.createTokenHeader();
+    console.log(this.url + 'findProductByShpId/' + localStorage.getItem("email"));
+    return this.httpClient.delete(this.url + 'findProductByShpId/' + localStorage.getItem("email"),{headers:headers});
+  }
+  
   
 }

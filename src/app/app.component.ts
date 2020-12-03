@@ -8,8 +8,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'cart-front';
 
+  public isAdmin(): boolean {
+    if (localStorage.getItem('perfil') == 'admin') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
   public isAuth(): boolean {
-    return !!localStorage.getItem('usuario');   
+    return !!localStorage.getItem('usuario');
     /*
     --> Froma Tradicional de Hacrlo
     if(localStorage.getItem('usuario')){
