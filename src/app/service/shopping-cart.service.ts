@@ -56,21 +56,6 @@ export class ShoppingCartService {
     console.log('->' + this.url + 'save/' + localStorage.getItem("email"));
     return this.httpClient.get(this.url + 'save/' + localStorage.getItem("email"), { headers: headers });
   }
-  public addProducr(idPro: string): Observable<any> {
-    let headers = this.createTokenHeader();
-    //let user=JSON.parse(localStorage.getItem("email"));
-    //console.log(user.username);
-    console.log('->' + this.url + 'addShp/' + localStorage.getItem("carId") + '/' + idPro);
-    return this.httpClient.get(this.url + 'addShp/' + localStorage.getItem("carId") + '/' + idPro, { headers: headers });
-  }
-
-  public deleteProductStep(idPro: string){
-    let headers = this.createTokenHeader();
-    //let user=JSON.parse(localStorage.getItem("email"));
-    //console.log(user.username);
-    // http://localhost:9090/api/shoppingProduct/deleteP/17/APPL693
-    console.log('->' + this.url + 'addShp/' + localStorage.getItem("carId") + '/' + idPro);
-    return this.httpClient.get(this.url + 'addShp/' + localStorage.getItem("carId") + '/' + idPro, { headers: headers });
-  }
+  
 
 }

@@ -27,6 +27,10 @@ export class LoginComponent implements OnInit {
     localStorage.removeItem("usuario");
     localStorage.removeItem("token");
     localStorage.removeItem("email");
+    localStorage.removeItem("shpcId");
+    localStorage.removeItem("carId");
+    localStorage.removeItem("perfil");
+    
   }
 
   /**

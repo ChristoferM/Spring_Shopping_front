@@ -1,0 +1,35 @@
+<h3>{{tituloPM}}</h3>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th *ngIf=_isAdmin>ID</th>
+            <th>Name</th>
+            <th>enable</th>
+            <th>Pagar</th>
+        </tr>
+    </thead>
+
+    <tr *ngFor="let paymentMethod of paymentMethods">
+        <td  th scope="row"  *ngIf=_isAdmin>{{paymentMethod.payId}}</td>
+        <td>{{paymentMethod.name}}</td>
+        <td>{{paymentMethod.enable}}</td>
+        <td *ngIf=_isAdmin>
+            <a [routerLink]="['/paymentMethod-edit',paymentMethod.payId]">Editar</a>
+        </td>
+        
+        <td class="input-group">
+
+            <span class="input-group-btn">
+
+                <button  (click)="PayCar(paymentMethod.payId)" type="button" class="btn btn-success btn-number"
+                    data-type="plus">Pagar
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </span>
+        </td>
+
+    </tr>
+
+
+</table>

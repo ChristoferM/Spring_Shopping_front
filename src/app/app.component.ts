@@ -6,8 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
   title = 'cart-front';
-
+  sesion=localStorage.getItem('perfil');
   public isAdmin(): boolean {
     if (localStorage.getItem('perfil') == 'admin') {
       return true;

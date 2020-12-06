@@ -2,20 +2,21 @@
 
 <table>
 
-<tr>
-    <td>ID</td>
-    <td>Name</td>
-    <td>enable</td>
-</tr>
-payId
+    <tr>
+        <td *ngIf=_isAdmin>ID</td>
+        <td>Name</td>
+        <td>enable</td>
+    </tr>
+
     <tr *ngFor="let paymentMethod of paymentMethods">
-    <td>{{paymentMethod.payId}}</td>
-    <td>{{paymentMethod.name}}</td>
-    <td>{{paymentMethod.enable}}</td>
-    <td>
-        <a [routerLink]="['/paymentMethod-edit',paymentMethod.payId]" >Editar</a>
-    </td>
-</tr>
+        <td *ngIf=_isAdmin>{{paymentMethod.payId}}</td>
+        <td>{{paymentMethod.name}}</td>
+        <td>{{paymentMethod.enable}}</td>
+        <td *ngIf=_isAdmin>
+            <a [routerLink]="['/paymentMethod-edit',paymentMethod.payId]">Editar</a>
+        </td>
+
+    </tr>
 
 
 </table>

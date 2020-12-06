@@ -13,6 +13,8 @@ import { ProductEditComponent } from './component/product-edit/product-edit.comp
 import { LoginComponent } from './component/login/login.component';
 import { ShoopingCartComponent } from './component/shooping-cart/shooping-cart.component'
 import { AuthGuard } from './guard/auth.guard';
+import { PayCarComponent } from './component/pay-car/pay-car.component';
+import { RegisterComponent } from './component/register/register.component';
 
 
 const routes: Routes = [
@@ -23,7 +25,7 @@ const routes: Routes = [
 
   
   {path: "shooping-cart",component:ShoopingCartComponent , canActivate:[AuthGuard] },
-  {path: "payShoppingCar",component:PayShoppingCarComponent,canActivate:[AuthGuard]},
+  {path: "EditShoppingCar",component:PayShoppingCarComponent,canActivate:[AuthGuard]},
 
   {path: "product-list",component: ProductListComponent, canActivate:[AuthGuard] },
   {path: "product-save",component: ProductSaveComponent, canActivate:[AuthGuard] },
@@ -32,6 +34,8 @@ const routes: Routes = [
   {path: "customer-list",component: CustomerListComponent, canActivate:[AuthGuard] },
   {path: "customer-save",component:CustomerSaveComponent, canActivate:[AuthGuard] },
   {path: "customer-edit/:email",component:CustomerEditComponent, canActivate:[AuthGuard] },
+  {path: "payCar",component:PayCarComponent, canActivate:[AuthGuard] },
+  {path: "R-New-User",component:RegisterComponent, canActivate:[AuthGuard] },
   
   {path: "login", component:LoginComponent},
   {path: '', component:LoginComponent}

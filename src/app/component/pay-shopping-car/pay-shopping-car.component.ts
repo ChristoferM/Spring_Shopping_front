@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { PaymentMethod } from 'src/app/domain/payment-method';
-import { Product } from 'src/app/domain/product';
+import { ShoppingProduct } from 'src/app/domain/shoppingProduct';
+import { AppComponent } from 'src/app/app.component';
 import { PaymentMethodListService } from 'src/app/service/payment-method-list.service';
-import { ProductListService } from 'src/app/service/product-list.service';
+import { ShoppingProductService } from 'src/app/service/shopping-product.service';
+
 
 @Component({
   selector: 'app-pay-shopping-car',
@@ -11,22 +13,26 @@ import { ProductListService } from 'src/app/service/product-list.service';
 })
 export class PayShoppingCarComponent implements OnInit {
 
-  products: Product[];
+  products: ShoppingProduct[];
   pays: PaymentMethod[];
 
   constructor(
     public paymetodosService: PaymentMethodListService,
-    public productsService: ProductListService
+    public shoppingProductService: ShoppingProductService,
+    public appComponent: AppComponent,
+
+
   ) { }
 
   ngOnInit(): void {
     this.showProduct();
+    this.products;
+    this.showPayMethod();
   }
-
-  public showProduct(): void {
+  public showPayMethod(): void {
 
     console.log('*********************** cargar los metodos de pago disponibles ');
-    let idCar = "15";
+
     this.paymetodosService.findAll().subscribe(
       data => {
         console.log("Pidiendo los METODOS DE PAGO");
@@ -35,9 +41,15 @@ export class PayShoppingCarComponent implements OnInit {
       error => {
         console.log("Error en la peticion de los metodos de pago");
       });
+    //---------------------------------------------------------------------------
+    //---------------------------------------------------------------------------
+  }
+  public showProduct(): void {
+    let idCar = localStorage.getItem('shpcId');
 
+    //---------------------------------------------------------------------------
     console.log('*********************** cargar los productos del shopping car');
-    this.productsService.findAll().subscribe(
+    this.shoppingProductService.findAllForEmail().subscribe(
       data => {
         console.log("Pidiendo los Registros de productos del carro con ID : " + idCar);
         this.products = data;
@@ -47,6 +59,29 @@ export class PayShoppingCarComponent implements OnInit {
       });
 
   }
+  public mas(proId: string): void {
+    console.log('agregar uno');
+    this.shoppingProductService.addProducr(proId).subscribe(
+      data => {
+        console.log('consulta de add ');
 
+      },
+      error => {
+        console.log("Error en add");
+      });
+    window.location.reload();
+  }
+  public menos(proId: string): void {
+    console.log('eliminar uno');
+    this.shoppingProductService.deleteProductStep(proId).subscribe(
+      data => {
+        console.log("Eliminardo");
+        window.location.reload();
+      },
+      error => {
+        console.log('Error al eliminar ');
 
+      });
+    window.location.reload();
+  }
 }

@@ -22,6 +22,8 @@ import { PaymentMethodSaveComponent } from './component/payment-method-save/paym
 import { LoginComponent } from './component/login/login.component';
 import { ShoopingCartComponent } from './component/shooping-cart/shooping-cart.component';
 import { PayShoppingCarComponent } from './component/pay-shopping-car/pay-shopping-car.component';
+import { PayCarComponent } from './component/pay-car/pay-car.component';
+import { RegisterComponent } from './component/register/register.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { PayShoppingCarComponent } from './component/pay-shopping-car/pay-shoppi
     LoginComponent,
     ShoopingCartComponent,
     PayShoppingCarComponent,
+    PayCarComponent,
+    RegisterComponent,
    
 
   ],

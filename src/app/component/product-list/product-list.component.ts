@@ -4,8 +4,8 @@ import { Product } from 'src/app/domain/product';
 import { ProductListService } from 'src/app/service/product-list.service';
 import { ShoppingCartService } from 'src/app/service/shopping-cart.service';
 import { ViewChild } from '@angular/core'
-import { LoginComponent } from '../login/login.component';
 import { AppComponent } from 'src/app/app.component';
+import { ShoppingProductService } from 'src/app/service/shopping-product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -30,7 +30,8 @@ export class ProductListComponent implements OnInit {
   constructor(
     public productService: ProductListService,
     public appcomponent: AppComponent,
-    public shoppingCartServicie: ShoppingCartService
+    public shoppingCartServicie: ShoppingCartService,
+    public shoppingProduct: ShoppingProductService
   ) { }
 
   ngOnInit(): void {
@@ -78,6 +79,52 @@ export class ProductListComponent implements OnInit {
     this.messages = [""];
     console.log("Option Add ");
     console.log(proId);
+    this.findCarByEmail();
+    //-------------------------------------------
+    if (localStorage.getItem("carId") == null) {
+
+      //-------------------------------------------
+      console.log('CREANDO CARRITO');
+
+      this.shoppingProduct.createCart().subscribe(
+        data => {
+          console.log('CARRITO CREADO' + data);
+        },
+        error => {
+          console.log("Error AL MOMENTO DE CREAR EL CARRITO");
+        });
+
+      //-------------------------------------------
+      this.findCarByEmail();
+      //-------------------------------------------
+      this.addProducr(proId);
+
+    } else {
+      //-------------------------------------------
+      this.addProducr(proId);
+
+    }
+
+  }
+  //-------------------------------------------
+  private addProducr(proId: string) {
+
+    console.log('Agregando el producto :_' + proId);
+
+    this.shoppingProduct.addProducr(proId).subscribe(
+      data => {
+        console.log('consulta de add ');
+
+      },
+      error => {
+        console.log("Error en add");
+      });
+
+  }
+  //-------------------------------------------
+  private findCarByEmail() {
+    console.log('+++++++++++++++++++++++++findCarByEmail');
+
     this.shoppingCartServicie.findCarByEmail().subscribe(
       data => {
         console.log(data);
@@ -85,9 +132,9 @@ export class ProductListComponent implements OnInit {
         localStorage.setItem("carId", data[0].carId);
       },
       error => {
-        console.log("Error En encontrar el Carrito con el correo");
+        console.log("Error En encontrar el Carrito con el correo" + error);
       });
-    console.log('*****************************************' + localStorage.getItem("carId"));
+    console.log('findCarByEmail**********************************' + localStorage.getItem("carId"));
 
   }
   public findAll(): void {

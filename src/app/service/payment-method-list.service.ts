@@ -25,7 +25,13 @@ export class PaymentMethodListService {
 
   public findAll(): Observable<any> {
     let headers = this.createTokenHeader();
+    console.log(this.url + 'findAll');
+    
     return this.httpClient.get(this.url + 'findAll', { headers: headers });
+  }
+  public finByAllEnable(): Observable<any> {
+    let headers = this.createTokenHeader();
+    return this.httpClient.get(this.url + 'finByAllEnable', { headers: headers });
   }
 
   public findById(payId: Number): Observable<any> {
@@ -47,6 +53,12 @@ export class PaymentMethodListService {
     return this.httpClient.delete(this.url + 'delete/' + payId, { headers: headers });
   }
 
+  public PayCart(payId:string): Observable<any> {
+    let headers = this.createTokenHeader();
+    console.log(this.url + 'PayCart/' + payId+'/'+ localStorage.getItem("carId"));
+    
+    return this.httpClient.get(this.url + 'PayCart/' + payId+'/'+ localStorage.getItem("carId"), { headers: headers });
+  }
 
 
   public switchEnable(payId: string): Observable<any> {
