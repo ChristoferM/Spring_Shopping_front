@@ -13,8 +13,8 @@
                 <th scope="col">Cant. items</th>
                 <th scope="col">Cost. total</th>
                 <th scope="col">customerEmail</th>
-                <th *ngIf="!_isAdmin" scope="col">paymentMethod Id</th>
-                <th scope="col">Opciones de Carrito</th>
+                <th *ngIf="_isAdmin" scope="col">paymentMethod Id</th>
+                <th *ngIf="!_isAdmin"scope="col">Opciones de Carrito</th>
             </tr>
         </thead>
 
@@ -38,16 +38,19 @@
 
 
 
-            <td class="input-group">
-                <div *ngIf=_isAdmin>
+
+            <div *ngIf=_isAdmin>
+                <td class="input-group">
                     <span class="input-group-btn">
                         <button (click)="editCar(car.carId)" type="button" class="btn btn-warning" data-type="minus">
                             ver
                             <span class="glyphicon glyphicon-minus"></span>
                         </button>
                     </span>
-                </div>
-                <div *ngIf=!_isAdmin>
+                </td>
+            </div>
+            <div *ngIf=!_isAdmin>
+                <td class="input-group">
                     <span class="input-group-btn">
                         <button (click)="editCar(car.carId)" type="button" class="btn btn-danger btn-number"
                             data-type="minus">
@@ -62,17 +65,10 @@
                             <span class="glyphicon glyphicon-plus"></span>
                         </button>
                     </span>
-                </div>
+                </td>
+            </div>
 
 
-                <!-- 
-                  <a [routerLink]="['/product-edit',product.proId]">Editar</a>
-  
-                  <button (click)="delete(product.proId)">
-                      delete
-                  </button>
-                  -->
-            </td>
 
         </tr>
 

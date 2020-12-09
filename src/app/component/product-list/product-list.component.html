@@ -59,7 +59,9 @@
               <span class="glyphicon glyphicon-minus"></span>
             </button>
           </span>
+          
         </div>
+        <div *ngIf="!isAdmin()">
         <span class="input-group-btn">
 
           <button (click)="add_Cart(product.proId)" type="button" class="btn btn-success btn-number"
@@ -67,6 +69,7 @@
             <span class="glyphicon glyphicon-plus"></span>
           </button>
         </span>
+      </div>
 
         <!-- 
                 <a [routerLink]="['/product-edit',product.proId]">Editar</a>

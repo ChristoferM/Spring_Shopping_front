@@ -6,6 +6,7 @@ import { ShoppingCartService } from 'src/app/service/shopping-cart.service';
 import { ViewChild } from '@angular/core'
 import { AppComponent } from 'src/app/app.component';
 import { ShoppingProductService } from 'src/app/service/shopping-product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -28,6 +29,7 @@ export class ProductListComponent implements OnInit {
   public showMsg: boolean = false;
   public messages: string[] = [""];
   constructor(
+    private router: Router,
     public productService: ProductListService,
     public appcomponent: AppComponent,
     public shoppingCartServicie: ShoppingCartService,
@@ -68,7 +70,7 @@ export class ProductListComponent implements OnInit {
     );
 
   }
-  
+
   public add_Cart(proId: string): void {
     this.messages = [""];
     console.log("Option Add ");
@@ -163,8 +165,8 @@ export class ProductListComponent implements OnInit {
 
         });
     }
-    //window.location.reload();
+    window.location.reload();
   }
 
-
+  
 }

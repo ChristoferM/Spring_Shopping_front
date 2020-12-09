@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
-  apiURL: 'http://localhost:9090',
+  //apiURL: 'http://localhost:9090',
+  apiURL: 'https://git.heroku.com/cart-spring.git',
   //apiURL:'https://cart-spring.herokuapp.com/'
   firebaseConfig : {
     apiKey: "AIzaSyDTaOTNYyjWysPbVUQG5v-OHgfpf8fC8pk",
