@@ -1,46 +1,66 @@
-
 <div *ngIf="showMsg">
     <p *ngFor="let msg of messages">
         {{msg}}
     </p>
 
 </div>
-<form #productform="ngForm">
 
-    <input type="text" name="proId" id="proId" #proId placeholder="ID Producto" [(ngModel)]="product.proId" required />
-    <br>
-    <input type="text" name="name" id="name" #email placeholder="name" [(ngModel)]="product.name" required />
-    <br>
-    <input type="text" name="price" id="price" #name placeholder="price" [(ngModel)]="product.price">
-    <br>
-    <input type="text" name="detail" id="detail" #address placeholder="detail" [(ngModel)]="product.detail">
-    <br>
-    <!-- <input type="text" name="enable" id="enable" #phone placeholder="enable" [(ngModel)]="product.enable">
-    <br> -->
-    <input type="text" name="image" id="image" #token placeholder="image" [(ngModel)]="product.image">
-
-    <br>
-    <select name="enable" id="enable" #enable [(ngModel)]="product.enable">
-        <option *ngFor="let enable of enables" [value]="enable.id">{{enable.name}}</option>
-    </select>
-    <button (click)="save()">
-        Save
-    </button>
-    <button routerLink="/product-list">
-        Cancel
-    </button>
-
-</form>
+<div class="espacio">
+    <form #productform="ngForm">
+        <div class="form-group">
+            <input class="form-control" type="text" name="proId" id="proId" #proId placeholder="ID Producto"
+                [(ngModel)]="product.proId" required />
+            <br>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="name" id="name" #email placeholder="name"
+                [(ngModel)]="product.name" required />
+            <br>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="price" id="price" #name placeholder="price"
+                [(ngModel)]="product.price">
+            <br>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="detail" id="detail" #address placeholder="detail"
+                [(ngModel)]="product.detail">
+            <br>
+        </div>
+        <div class="form-group">
+            <!-- <input type="text" name="enable" id="enable" #phone placeholder="enable" [(ngModel)]="product.enable">
+        <br> -->
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="image" id="image" #token placeholder="image"
+                [(ngModel)]="product.image">
+        </div>
+        <br>
+        <div class="form-group">
+            <select name="enable" id="enable" #enable [(ngModel)]="product.enable">
+                <option *ngFor="let enable of enables" [value]="enable.id">{{enable.name}}</option>
+            </select>
+            <button type="submit" class="btn btn-primary" (click)="save()">
+                Save
+            </button>
+    
+            <button type="submit" class="btn btn-danger" routerLink="/product-list">
+                Cancel
+            </button>
+        </div>
+    </form>
+    
+</div>
 
 
 {{product.proId}}
-<br/>
+<br />
 {{product.name}}
-<br/>
+<br />
 {{product.price}}
-<br/>
+<br />
 {{product.detail}}
-<br/>
+<br />
 {{product.image}}
-<br/>
+<br />
 {{product.enable}}

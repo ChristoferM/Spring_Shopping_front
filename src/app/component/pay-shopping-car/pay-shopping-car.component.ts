@@ -15,6 +15,7 @@ export class PayShoppingCarComponent implements OnInit {
 
   products: ShoppingProduct[];
   pays: PaymentMethod[];
+  public _isAdmin: boolean = false;
 
   constructor(
     public paymetodosService: PaymentMethodListService,
@@ -39,24 +40,37 @@ export class PayShoppingCarComponent implements OnInit {
         this.pays = data;
       },
       error => {
-        console.log("Error en la peticion de los metodos de pago");
+        console.log(error.error + " Error en la peticion de los metodos de pago");
       });
     //---------------------------------------------------------------------------
     //---------------------------------------------------------------------------
   }
   public showProduct(): void {
     let idCar = localStorage.getItem('shpcId');
+    if (this.appComponent.isAdmin) {
+      this._isAdmin = true;
+      this.shoppingProductService.findById(idCar).subscribe(
+        data => {
+          console.log("Pidiendo los Registros de productos del carro con ID : " + idCar);
+          this.products = data;
+        },
+        error => {
+          console.log("Error en la peticion de los prodcutos del Carro de Compra");
+        });
 
-    //---------------------------------------------------------------------------
-    console.log('*********************** cargar los productos del shopping car');
-    this.shoppingProductService.findAllForEmail().subscribe(
-      data => {
-        console.log("Pidiendo los Registros de productos del carro con ID : " + idCar);
-        this.products = data;
-      },
-      error => {
-        console.log("Error en la peticion de los prodcutos del Carro de Compra");
-      });
+    } else {
+      //---------------------------------------------------------------------------
+      console.log('*********************** cargar los productos del shopping car');
+      this.shoppingProductService.findAllForEmail().subscribe(
+        data => {
+          console.log("Pidiendo los Registros de productos del carro con ID : " + idCar);
+          this.products = data;
+        },
+        error => {
+          console.log("Error en la peticion de los prodcutos del Carro de Compra");
+        });
+
+    }
 
   }
   public mas(proId: string): void {

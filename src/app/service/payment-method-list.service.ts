@@ -8,6 +8,7 @@ import { PaymentMethod } from '../domain/payment-method';
   providedIn: 'root'
 })
 export class PaymentMethodListService {
+  
 
   public url: string = environment.apiURL + "/api/PayMethod/";
 
@@ -17,8 +18,8 @@ export class PaymentMethodListService {
 
   createTokenHeader(): HttpHeaders {
 
-    let token = localStorage.getItem("token");
-    let headers = new HttpHeaders({ 'Authorization': token });
+    let token=localStorage.getItem("token");
+    let headers=new HttpHeaders({'Authorization':token});
     return headers;
   }
 
@@ -63,11 +64,14 @@ export class PaymentMethodListService {
 
   public switchEnable(payId: string): Observable<any> {
     let headers = this.createTokenHeader();
-    return this.httpClient.delete(this.url + 'Enable/' + payId, { headers: headers });
+    console.log('--------------------------------------------------------------');
+    return this.httpClient.get(this.url + 'Enable/' + payId, { headers: headers });
   }
 
   public switchDisable(payId: string): Observable<any> {
     let headers = this.createTokenHeader();
-    return this.httpClient.delete(this.url + 'Disable/' + payId, { headers: headers });
+    console.log('--------------------------------------------------------------');
+    
+    return this.httpClient.get(this.url + 'Disable/' + payId, { headers: headers });
   }
 }

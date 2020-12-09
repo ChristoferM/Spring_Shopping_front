@@ -31,14 +31,20 @@ export class CustomerService {
   }
 
   public findById(email: string): Observable<any> {
+    console.log('\n \n **************** funcion #4 findById ******************');
     let headers=this.createTokenHeader();
+    console.log('Se mando el correo :  '+email);
+    console.log('Se mando el token :   '+ localStorage.getItem('token')+ '\n \n ' );
+    
     return this.httpClient.get(this.url+'finById/'+email,{headers:headers});
     //return this.httpClient.get(this.url + 'finById/' + email);
   }
 
   public save(customer: Customer): Observable<any> {
-    let headers=this.createTokenHeader();
-    return this.httpClient.post(this.url+'save',customer,{headers:headers});
+    //let headers=this.createTokenHeader();
+    console.log(this.url+'save',customer);
+    
+    return this.httpClient.post(this.url+'save',customer);
     //return this.httpClient.post(this.url + 'save', customer);
   }
 
@@ -49,7 +55,19 @@ export class CustomerService {
   }
   public delete(email: string): Observable<any> {
     let headers=this.createTokenHeader();
-    return this.httpClient.delete(this.url+'delete/'+email,{headers:headers});
+    return this.httpClient.get(this.url+'delete/'+email,{headers:headers});
     //return this.httpClient.delete(this.url + 'delete/' + email);
+  }
+  public switchEnable(email: string): Observable<any> {
+    let headers = this.createTokenHeader();
+    console.log('--------------------------------------------------------------');
+    return this.httpClient.get(this.url + 'Enable/' + email, { headers: headers });
+  }
+
+  public switchDisable(email: string): Observable<any> {
+    let headers = this.createTokenHeader();
+    console.log('--------------------------------------------------------------');
+    
+    return this.httpClient.get(this.url + 'Disable/' + email, { headers: headers });
   }
 }

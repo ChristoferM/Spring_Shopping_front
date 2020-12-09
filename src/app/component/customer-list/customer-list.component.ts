@@ -51,6 +51,30 @@ export class CustomerListComponent implements OnInit {
     );
 
   }
+  public cambiar(email:string,enable:string):void{
+    if (enable == 'Y') {
+      this.customerService.switchDisable(email).subscribe(
+        ok => {
+          console.log(ok);        
+        },
+        err => {
+          console.log(err.error);
 
+        });
+
+    } else {
+      console.log('Estado N');
+      this.customerService.switchEnable(email).subscribe(
+        ok => {
+          console.log(ok);
+        },
+        err => {
+          console.log(err.error);
+
+        });
+    }
+    window.location.reload();
+
+  }
 
 }

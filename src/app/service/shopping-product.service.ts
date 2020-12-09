@@ -28,7 +28,7 @@ export class ShoppingProductService {
 
   public findById(proId: string): Observable<any> {
     let headers = this.createTokenHeader();
-    return this.httpClient.get(this.url + 'finById/' + proId, { headers: headers });
+    return this.httpClient.get(this.url + 'findById/' + proId, { headers: headers });
   }
 
   public save(proId: string): Observable<any> {

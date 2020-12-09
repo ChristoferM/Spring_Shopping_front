@@ -54,12 +54,12 @@ export class ProductListService {
   }
   public switchEnable(proId: string): Observable<any> {
     let headers = this.createTokenHeader();
-    return this.httpClient.delete(this.url + 'Enable/' + proId, { headers: headers });
+    return this.httpClient.get(this.url + 'Enable/' + proId, { headers: headers });
   }
 
   public switchDisable(proId: string): Observable<any> {
     let headers = this.createTokenHeader();
-    return this.httpClient.delete(this.url + 'Disable/' + proId, { headers: headers });
+    return this.httpClient.get(this.url + 'Disable/' + proId, { headers: headers });
   }
   
 }

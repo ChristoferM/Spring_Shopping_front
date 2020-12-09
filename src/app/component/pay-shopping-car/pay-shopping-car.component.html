@@ -1,4 +1,4 @@
-<p>----------------------------------------------------------------</p>
+
 <div class="tabla">
     <table class="table">
         <thead class="thead-dark">
@@ -6,7 +6,7 @@
                 <th scope="col">Producto</th>
                 <th scope="col">Cantidad </th>
                 <th scope="col">Total x Articulo </th>
-                <th scope="col">Opciones</th>
+                <th *ngIf=!_isAdmin scope="col">Opciones</th>
             </tr>
         </thead>
 
@@ -16,33 +16,36 @@
             <td>{{product.total}}</td>
 
 
-            <td class="input-group">
+            <div *ngIf=!_isAdmin>
+                <td class="input-group">
 
-                <span class="input-group-btn">
-                    <button (click)="menos(product.productId)" type="button" class="btn btn-danger btn-number"
-                        data-type="minus">
-                        ELIMINAR
-                        <span class="glyphicon glyphicon-minus"></span>
-                    </button>
-                </span>
-                <span class="input-group-btn">
+                    <span class="input-group-btn">
+                        <button (click)="menos(product.productId)" type="button" class="btn btn-danger btn-number"
+                            data-type="minus">
+                            ELIMINAR
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </button>
+                    </span>
+                    <span class="input-group-btn">
 
-                    <button  (click)="mas(product.productId)" type="button" class="btn btn-success btn-number"
-                        data-type="plus">Agregar+
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </button>
-                </span>
+                        <button (click)="mas(product.productId)" type="button" class="btn btn-success btn-number"
+                            data-type="plus">Agregar+
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </span>
+                </td>
+            </div>
 
-                <!-- 
+            <!-- 
                   <a [routerLink]="['/product-edit',product.proId]">Editar</a>
   
                   <button (click)="delete(product.proId)">
                       delete
                   </button>
                   -->
-            </td>
+
         </tr>
-        
+
 
 
     </table>

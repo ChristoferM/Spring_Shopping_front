@@ -1,27 +1,42 @@
-<h3>{{titulo}}</h3>
+<h2 class="titulo">{{titulo}}</h2>
+<div class="espacio">
 
-<table>
+    <table class="table">
 
-    <div *ngIf="showMsg">
-        <p *ngFor="let msg of messages">
-            {{msg}}
-        </p>
+        <div *ngIf="showMsg">
+            <p *ngFor="let msg of messages">
+                {{msg}}
+            </p>
 
-    </div>
-    <tr>
-        <td>Email</td>
-        <td>Name</td>
-    </tr>
-    <tr *ngFor="let customer of customers">
-        <td>{{customer.email}}</td>
-        <td>{{customer.name}}</td>
-        <td>
-            <a [routerLink]="['/customer-edit',customer.email]">Editar</a>
-            <button (click)="delete(customer.email)">
-                delete
-            </button>
-        </td>
-    </tr>
+        </div>
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Name</th>
+                <th scope="col">Name</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+
+        <tr *ngFor="let customer of customers">
+            <td th scope="row">{{customer.email}}</td>
+            <td th scope="row">{{customer.name}}</td>
+            <td th scope="row">{{customer.enable}}</td>
+            <td>
+
+                <button (click)="delete(customer.email)" type="button" class="btn btn-danger btn-number"
+                    data-type="minus">
+                    delete
+                </button>
+
+                <button (click)="cambiar(customer.email,customer.enable)" type="button" class="btn btn-warning"
+                    data-type="minus">
+                    Cambiar estado
+                </button>
+            </td>
+
+        </tr>
 
 
-</table>
+    </table>
+</div>

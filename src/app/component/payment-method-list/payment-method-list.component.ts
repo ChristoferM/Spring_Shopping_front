@@ -23,6 +23,31 @@ export class PaymentMethodListComponent implements OnInit {
     this.findAll();
 
   }
+  public cambiar(payId: string, enable: string): void {
+    if (enable == 'Y') {
+      this.paymentMethodService.switchDisable(payId).subscribe(
+        ok => {
+          console.log(ok);        
+        },
+        err => {
+          console.log(err.error);
+
+        });
+
+    } else {
+      console.log('Estado N');
+      this.paymentMethodService.switchEnable(payId).subscribe(
+        ok => {
+          console.log(ok);
+        },
+        err => {
+          console.log(err.error);
+
+        });
+    }
+    window.location.reload();
+
+  }
 
 
   public findAll(): void {
@@ -32,7 +57,7 @@ export class PaymentMethodListComponent implements OnInit {
     this.paymentMethodService.findAll().subscribe(
       data => {
         console.log(data);
-        this.paymentMethods = data; 
+        this.paymentMethods = data;
       },
       error => {
         console.log("Error" + error.error);

@@ -15,6 +15,7 @@ import { ShoopingCartComponent } from './component/shooping-cart/shooping-cart.c
 import { AuthGuard } from './guard/auth.guard';
 import { PayCarComponent } from './component/pay-car/pay-car.component';
 import { RegisterComponent } from './component/register/register.component';
+import { ResetPassComponent } from './component/reset-pass/reset-pass.component';
 
 
 const routes: Routes = [
@@ -34,11 +35,13 @@ const routes: Routes = [
   {path: "customer-list",component: CustomerListComponent, canActivate:[AuthGuard] },
   {path: "customer-save",component:CustomerSaveComponent, canActivate:[AuthGuard] },
   {path: "customer-edit/:email",component:CustomerEditComponent, canActivate:[AuthGuard] },
-  {path: "payCar",component:PayCarComponent, canActivate:[AuthGuard] },
-  {path: "R-New-User",component:RegisterComponent, canActivate:[AuthGuard] },
   
   {path: "login", component:LoginComponent},
-  {path: '', component:LoginComponent}
+  {path: '', component:LoginComponent},
+
+  {path: "payCar",component:PayCarComponent, canActivate:[AuthGuard] },
+  {path: "Register",component:RegisterComponent },
+  {path: "Reset-PassWord",component:ResetPassComponent},
 ];
 
 @NgModule({

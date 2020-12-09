@@ -333,8 +333,23 @@
           <a class="nav-item nav-link active" routerLink="/paymentMethod-save">paymentMethod SaveLink</a>
         </li>
       </div>
+      <div *ngIf=isAdmin()>
+        <li class="nav-item">
+          <a class="nav-item nav-link active" routerLink="/product-save">product Save</a>
+        </li>
+      </div>
+      <div *ngIf=isAdmin()>
+        <li class="nav-item">
+         <!--<a class="nav-item nav-link active" routerLink="/customer-save">Customer Save</a>  --> 
+        </li>
+      </div>
+      <div *ngIf=isAdmin()>
+        <li class="nav-item">
+          <a class="nav-item nav-link active">{{sesion}}</a>
+        </li>
+      </div>
       <li class="nav-item">
-        <a class="nav-item nav-link active">{{sesion}}</a>
+        <a class="nav-item nav-link active" routerLink="/">Cerrar sesion</a>
       </li>
     </ul>
   </div>
@@ -370,16 +385,6 @@
         d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z"
         transform="translate(-147.025 -140.939)" fill="#f5f5f5" />
     </svg>
-
-  </div>
-  <div *ngIf="isAuth()">
-    <h1>Save's</h1>
-
-    <br />
-    <a routerLink="/product-save">product Save</a>
-    <br />
-    <a routerLink="/customer-save">Customer Save</a>
-    <br />
 
   </div>
 </div>

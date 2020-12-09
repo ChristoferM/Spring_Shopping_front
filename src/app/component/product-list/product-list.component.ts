@@ -68,13 +68,7 @@ export class ProductListComponent implements OnInit {
     );
 
   }
-  public delete_Cart(proId: string): void {
-    this.messages = [""];
-    console.log("Option delete ");
-    console.log(proId);
-
-
-  }
+  
   public add_Cart(proId: string): void {
     this.messages = [""];
     console.log("Option Add ");
@@ -148,7 +142,29 @@ export class ProductListComponent implements OnInit {
         console.log("Error");
       });
   }
+  public cambiar(proId: string, enable: string): void {
+    if (enable == 'Y') {
+      this.productService.switchDisable(proId).subscribe(
+        ok => {
+          console.log(ok);
+        },
+        err => {
+          console.log(err.error);
 
+        });
+
+    } else {
+      this.productService.switchEnable(proId).subscribe(
+        ok => {
+          console.log(ok);
+        },
+        err => {
+          console.log(err.error);
+
+        });
+    }
+    //window.location.reload();
+  }
 
 
 }

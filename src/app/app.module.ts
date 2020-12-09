@@ -5,6 +5,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductListComponent } from './component/product-list/product-list.component';
 import { PaymentMethodListComponent } from './component/payment-method-list/payment-method-list.component';
 import { CustomerSaveComponent } from './component/customer-save/customer-save.component';
-import { FormsModule } from '@angular/forms';
 import { CustomerEditComponent } from './component/customer-edit/customer-edit.component';
 import { PaymentMethodEditComponent } from './component/payment-method-edit/payment-method-edit.component';
 import { ProductEditComponent } from './component/product-edit/product-edit.component';
@@ -24,6 +26,8 @@ import { ShoopingCartComponent } from './component/shooping-cart/shooping-cart.c
 import { PayShoppingCarComponent } from './component/pay-shopping-car/pay-shopping-car.component';
 import { PayCarComponent } from './component/pay-car/pay-car.component';
 import { RegisterComponent } from './component/register/register.component';
+import { environment } from 'src/environments/environment';
+import { ResetPassComponent } from './component/reset-pass/reset-pass.component';
 
 
 @NgModule({
@@ -43,6 +47,7 @@ import { RegisterComponent } from './component/register/register.component';
     PayShoppingCarComponent,
     PayCarComponent,
     RegisterComponent,
+    ResetPassComponent,
    
 
   ],
@@ -55,7 +60,11 @@ import { RegisterComponent } from './component/register/register.component';
     MatMenuModule,
     MatButtonModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

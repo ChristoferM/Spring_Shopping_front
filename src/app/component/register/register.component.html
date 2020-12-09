@@ -3,17 +3,36 @@
     <form>
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input [(ngModel)]="email" name="email" type="email" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" min="5" max="255">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
+            <label for="exampleInputEmail1">Address</label>
+            <input [(ngModel)]="address" name="address" type="text" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" min="3" max="255">
+
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">phone</label>
+            <input [(ngModel)]="phone" name="phone" type="number" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" min="3" max="255">
+
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input [(ngModel)]="name" name="name" type="text" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" min="3" max="255">
+
+        </div>
+        <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input [(ngModel)]="password" name="password" type="password" class="form-control"
+                id="exampleInputPassword1" min="3" max="255">
         </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <button (click)="registerCustomer()" type="submit" class="btn btn-primary">Registrarse</button>
+        <br>
+        <button  (click)="login()" type="submit" class="btn btn-primary">Iniciar Sesion</button>
     </form>
 </div>

@@ -1,19 +1,24 @@
 <h3>{{titulo}}</h3>
 
-<table>
-
-    <tr>
-        <td *ngIf=_isAdmin>ID</td>
-        <td>Name</td>
-        <td>enable</td>
-    </tr>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <td *ngIf=_isAdmin>ID</td>
+            <td>Name</td>
+            <td>enable</td>
+            <td *ngIf=_isAdmin> Opciones </td>
+        </tr>
+    </thead>
 
     <tr *ngFor="let paymentMethod of paymentMethods">
         <td *ngIf=_isAdmin>{{paymentMethod.payId}}</td>
-        <td>{{paymentMethod.name}}</td>
-        <td>{{paymentMethod.enable}}</td>
+        <td scope="row">{{paymentMethod.name}}</td>
+        <td scope="row">{{paymentMethod.enable}}</td>
         <td *ngIf=_isAdmin>
-            <a [routerLink]="['/paymentMethod-edit',paymentMethod.payId]">Editar</a>
+            <button (click)="cambiar(paymentMethod.payId,paymentMethod.enable)" type="button" class="btn btn-warning"
+                data-type="minus">
+                Cambiar estado
+            </button>
         </td>
 
     </tr>

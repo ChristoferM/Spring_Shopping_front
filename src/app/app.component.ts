@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthCartService } from './service/auth-cart.service';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+
   title = 'cart-front';
-  sesion=localStorage.getItem('perfil');
+  private authCartService: AuthCartService;
+  sesion = localStorage.getItem('perfil');
   public isAdmin(): boolean {
     if (localStorage.getItem('perfil') == 'admin') {
       return true;
@@ -28,6 +30,22 @@ export class AppComponent {
         return false;
       }
     }*/
+  }
 
+  public signOut(): void {
+    this.authCartService.signOut()
+      .then(
+        (value) => {
+          console.log('Cerrar Sesion En SignOut');
+          console.log(value);
+
+        }
+      )
+      .catch(
+        e => {
+          console.log('error En SignOut');
+          console.log(e);
+        }
+      );
   }
 }

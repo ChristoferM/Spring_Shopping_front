@@ -14,6 +14,8 @@ export class AuthService {
   constructor(public httpClient:HttpClient) {}
 
   public loginUser(user:User):Observable<any>{
+    console.log('*** funcion #1  loginn  ***');
+    console.log(this.url+''+user);
     return this.httpClient.post(this.url,user);
   }
 
